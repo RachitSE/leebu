@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.memory-gallery {
+    padding: 20px;
+    text-align: center;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.memory-card {
+    @apply bg-gradient-to-br from-gray-800 to-black bg-opacity-40 rounded-2xl shadow-2xl backdrop-blur-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl;
+}
+
+.memory-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.memory-content {
+    padding: 15px;
+}
+
+.memory-content h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.memory-content p {
+    color: #bbb;
+}
+
+button {
+    @apply bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-200 transition shadow-md;
+}
+
+input, textarea {
+    @apply bg-black text-white border border-gray-600 p-3 rounded-lg outline-none focus:ring-2 focus:ring-gray-400;
+}
+/* Background Grid Animation */
+body {
+    @apply bg-black text-white relative;
+    overflow: hidden;
+}
+
+.grid-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    background: linear-gradient(transparent 97%, rgba(255, 255, 255, 0.05) 3%), 
+                linear-gradient(90deg, transparent 97%, rgba(255, 255, 255, 0.05) 3%);
+    background-size: 80px 80px; /* Bigger squares */
+    animation: grid-move 10s linear infinite;
+}
+
+@keyframes grid-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-80px, -80px); /* Slower movement */
+    }
+}
